@@ -7,9 +7,17 @@
        http://code.alibabatech.com/schema/dubbo
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <!--定义了提供方应用信息，用于计算依赖关系；在 dubbo-admin 或 dubbo-monitor 会显示这个名字，方便辨识-->
-    <dubbo:application name="demotest-provider" owner="programmer" organization="dubbox"/>
+    <!-- <dubbo:application name="demotest-provider" owner="programmer" organization="dubbox"/> -->
+	<dubbo:application name="demotest-provider">
+		<dubbo:parameter key="qos.enable" value="true" />
+		<dubbo:parameter key="qos.accept.foreign.ip"
+			value="true" />
+		<dubbo:parameter key="qos.port" value="22222" />
+	</dubbo:application>
+    
+    
     <!--使用 zookeeper 注册中心暴露服务，注意要先开启 zookeeper-->
-    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <dubbo:registry address="zookeeper://192.168.119.1:2181"/>
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
     <!--使用 dubbo 协议实现定义好的 api.PermissionService 接口-->
