@@ -12,6 +12,8 @@ public class Consumer {
 		System.err.println("consumer start");
 		DemoService demoService = context.getBean(DemoService.class);
 		System.err.println("consumer");
-		System.out.println(demoService.getPermissions(1L));
+		System.err.println("====================================");
+		System.err.println(demoService.getPermissions(1L));
+		System.err.println("====================================");
 	}
 }
